@@ -1,29 +1,37 @@
-# AI-KG-for-IAM
+# 🧠 Knowledge Graph for IAM
 
-This project demonstrates how to construct a small Knowledge Graph integrating Dutch household and building data, and export it for use in Integrated Assessment Models (IAM).
+A lightweight demo for integrating household–building–material–energy data into a Neo4j-powered knowledge graph, aiming to support data consistency validation and scenario input generation for Integrated Assessment Models (IAMs).
 
-## Project Structure
+## 📁 Project Structure
+├── data/processed/ # Cleaned CSV datasets (buildings, households, regions, etc.) ├── scripts/ # Python scripts for cleaning, graph building, IAM integration ├── run_all.py # Run all key steps in sequence ├── visualize_graph.py # Neo4j-based visualization (optional) └── requirements.txt # Python dependencies
 
-- `data/processed/`: Cleaned CSV datasets
-- `scripts/data_processing/clean_and_merge.py`: Data cleaning script
-- `scripts/kg_construction/build_kg.py`: Neo4j KG construction
-- `scripts/iam_integration/iam_mapper.py`: IAM input extraction
-- `run_all.py`: One-click running
+## 🧩 Core Entities & Relations   
 
-## Requirements
+- `Household` —LOCATED_IN→ `Building`
+- `Building` —BUILT_FROM→ `Material`
+- `Building` —CONSUMES→ `EnergyUse`
+- `Building` —IN_REGION→ `Region`
 
-Install dependencies:
+## 🚀 Quick Start
 
 ```bash
+# Step 1: Install dependencies
 pip install -r requirements.txt
-```
 
-## Usage
+# Step 2: Start Neo4j database locally
 
-Make sure your Neo4j is running locally on `bolt://localhost:7687`, username `neo4j`, password `password`.
-
-Run the full pipeline:
-
-```bash
+# Step 3: Run the pipeline
 python run_all.py
 ```
+# 🔍 Sample Neo4j Query
+
+MATCH (b:Building)-[:CONSUMES]->(e:EnergyUse)
+RETURN b.buildingID, e.type, e.amount
+
+## 🎯 Motivation
+
+This project demonstrates how to:
+
+- ✅ Build a semantic + physical knowledge graph from CSV sources  
+- 🧪 Validate consistency between housing, material, and energy data  
+- 📊 Generate input tables for IAM frameworks (e.g., IMAGE, GCAM)
