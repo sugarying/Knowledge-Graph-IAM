@@ -5,7 +5,7 @@ A lightweight demo for integrating household–building–material–energy data
 ## 📁 Project Structure
 ├── data/processed/ # Cleaned CSV datasets (buildings, households, regions, etc.) ├── scripts/ # Python scripts for cleaning, graph building, IAM integration ├── run_all.py # Run all key steps in sequence ├── visualize_graph.py # Neo4j-based visualization (optional) └── requirements.txt # Python dependencies
 
-## 🧩 Core Entities & Relations
+## 🧩 Core Entities & Relations   
 
 - `Household` —LOCATED_IN→ `Building`
 - `Building` —BUILT_FROM→ `Material`
@@ -22,15 +22,16 @@ pip install -r requirements.txt
 
 # Step 3: Run the pipeline
 python run_all.py
-#  🔍 Sample Neo4j Query
+
+# 🔍 Sample Neo4j Query
 MATCH (b:Building)-[:CONSUMES]->(e:EnergyUse)
 RETURN b.buildingID, e.type, e.amount
 
-# 🎯 Motivation
+## 🎯 Motivation
+
 This project demonstrates how to:
 
-Build a semantic + physical knowledge graph from CSV sources
+- ✅ Build a semantic + physical knowledge graph from CSV sources  
+- 🧪 Validate consistency between housing, material, and energy data  
+- 📊 Generate input tables for IAM frameworks (e.g., IMAGE, GCAM)
 
-Validate consistency between housing, material, and energy data
-
-Generate input tables for use in IAM frameworks (e.g., IMAGE, GCAM)
