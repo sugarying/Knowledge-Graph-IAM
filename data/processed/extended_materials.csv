@@ -1,0 +1,5 @@
+Material,ThermalConductivity,CarbonIntensity
+Brick,0.6,180
+Wood,0.12,90
+Concrete,1.7,400
+Steel,50.0,800

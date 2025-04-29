@@ -1,0 +1,6 @@
+RegionID,RegionName,UrbanLevel
+R01,North,Suburban
+R02,East,Suburban
+R03,South,Rural
+R04,West,Rural
+R05,Central,Suburban
