@@ -22,16 +22,16 @@ pip install -r requirements.txt
 
 # Step 3: Run the pipeline
 python run_all.py
-
+```
 # 🔍 Sample Neo4j Query
-```bash
+
 MATCH (b:Building)-[:CONSUMES]->(e:EnergyUse)
 RETURN b.buildingID, e.type, e.amount
 
 ## 🎯 Motivation
 
 This project demonstrates how to:
-```bash
+
 - ✅ Build a semantic + physical knowledge graph from CSV sources  
 - 🧪 Validate consistency between housing, material, and energy data  
 - 📊 Generate input tables for IAM frameworks (e.g., IMAGE, GCAM)
